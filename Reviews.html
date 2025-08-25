@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Polish&Plait Beauty Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .review-form {
+            margin-bottom: 20px;
+        }
+        .review {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Client Reviews for Polish&Plait Beauty Bar</h1>
+    
+    <div class="review-form">
+        <h2>Leave a Review</h2>
+        <form id="reviewForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required><br><br>
+            <label for="review">Review:</label><br>
+            <textarea id="review" rows="4" required></textarea><br><br>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+
+    <h2>Reviews</h2>
+    <div id="reviewsContainer"></div>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const review = document.getElementById('review').value;
+
+            const reviewDiv = document.createElement('div');
+            reviewDiv.classList.add('review');
+            reviewDiv.innerHTML = `<strong>${name}</strong><p>${review}</p>`;
+            document.getElementById('reviewsContainer').appendChild(reviewDiv);
+
+            // Clear the form
+            document.getElementById('reviewForm').reset();
+        });
+    </script>
+    <footer>
+        <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
+    </footer>
+</body>
+</html>

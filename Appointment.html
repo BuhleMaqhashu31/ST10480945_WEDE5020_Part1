@@ -1,17 +1,10 @@
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .appointment-form {
-            margin-top: 20px;
-        }
-    </style>
+    <title>Book Appointment - Polish & Plait Beauty Bar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -25,31 +18,56 @@
             <a href="Reviews.html">Reviews</a>
         </nav>
     </header>
-    <h2>Book your appointment</h2>
-    <p>To book your appointment please select a date here.</p>
-    
-    <div class="appointment-form">
-        <form id="bookingForm">
-            <label for="date">Select Date:</label>
-            <input type="date" id="date" name="date" required>
-            <br><br>
-            <label for="time">Select Time:</label>
-            <input type="time" id="time" name="time" required>
-            <br><br>
-            <input type="submit" value="Book Appointment">
-        </form>
-    </div>
 
-    <script>
-        document.getElementById('bookingForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            alert(`Appointment booked for ${date} at ${time}`);
-        });
+    <main>
+        <h2>Book your appointment</h2>
+        <p>To book your appointment please select a date here.</p>
+        <div class="appointment-form">
+            <form id="bookingForm">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Select Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <input type="submit" value="Book Appointment">
+            </form>
+        </div>
+
+     <script>
+    const dateInput = document.getElementById("date");
+    const timeInput = document.getElementById("time");
+
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.setAttribute("min", today);
+
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const selectedDate = new Date(dateInput.value);
+        const selectedTime = timeInput.value;
+
+        const now = new Date();
+
+        if (selectedDate.toDateString() === now.toDateString()) {
+            if (selectedTime <= now.toTimeString().slice(0, 5)) {
+                alert("You cannot book a past time today. Please select a future time.");
+                return;
+            }
+        }
+
+        const formattedDate = selectedDate.toLocaleDateString("en-GB");
+        const finalDate = formattedDate.replace(/\//g, "-");
+
+        alert(`Appointment booked for ${finalDate} at ${selectedTime}`);
+    });
     </script>
+
+    </main>
+
     <footer>
         <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
     </footer>
 </body>
 </html>
+

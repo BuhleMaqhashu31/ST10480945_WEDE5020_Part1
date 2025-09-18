@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff0f6;
+  padding: 0 20px;
+}
+
+a {
+  color: #e75480;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff66a3;
+}
+
+h1, h2, h3 {
+  font-family: 'Arial', sans-serif;
+  color: #e75480;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+header {
+  background-color: #ffc0cb;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+nav a {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #800040;
+}
+
+nav a:hover {
+  color: #ff66a3;
+}
+
+footer {
+  background-color: #ffc0cb;
+  padding: 15px;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 12px;
+  color: #800040;
+  font-size: 0.9rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  background-color: #ffe6f0;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+#services img {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px auto 15px;
+}
+
+button, input[type="submit"] {
+  background-color: #e75480;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #ff66a3;
+}
+
+input[type="text"], input[type="date"], input[type="time"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #e75480;
+  border-radius: 8px;
+}
+
+label {
+  font-weight: bold;
+  color: #800040;
+}
+
+
+.review {
+  border: 1px solid #e75480;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #fff0f6;
+}
+
+@media (max-width: 1024px) {
+  #services ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  button, input[type="submit"] {
+    width: 100%;
+  }
+}

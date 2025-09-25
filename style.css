@@ -4,100 +4,145 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-primary: #e75480;
+  --color-primary-light: #ff66a3;
+  --color-secondary: #800040;
+  --color-bg: #fff0f6;
+  --color-bg-light: #ffe6f0;
+  --color-surface: #ffc0cb;
+  --color-text: #333;
+
+  --font-body: 'Arial', sans-serif;
+  --font-size-base: 1rem;   
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --radius: 12px;
+}
+
 html {
   font-size: 16px;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
   line-height: 1.6;
-  color: #333;
-  background-color: #fff0f6;
-  padding: 0 20px;
-}
-
-a {
-  color: #e75480;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #ff66a3;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  padding: 0 var(--space-md);
 }
 
 h1, h2, h3 {
-  font-family: 'Arial', sans-serif;
-  color: #e75480;
-  margin-bottom: 1rem;
+  font-family: var(--font-body);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
 }
 
-h1 {
-  font-size: 2.5rem;
+h1 { font-size: var(--font-size-xxl); }
+h2 { font-size: var(--font-size-xl); }
+h3 { font-size: var(--font-size-lg); }
+
+p, ul li {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-sm);
 }
 
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
+header, footer, section {
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
 }
 
 header {
-  background-color: #ffc0cb;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  background-color: var(--color-surface);
   text-align: center;
-}
-
-header h1 {
-  margin-bottom: 10px;
-  font-size: 2rem;
-}
-
-nav a {
-  margin: 0 10px;
-  font-weight: bold;
-  color: #800040;
-}
-
-nav a:hover {
-  color: #ff66a3;
 }
 
 footer {
-  background-color: #ffc0cb;
-  padding: 15px;
-  margin-top: 30px;
+  background-color: var(--color-surface);
   text-align: center;
-  border-radius: 12px;
-  color: #800040;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
 }
 
 main {
   max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  gap: var(--space-md);
 }
 
 section {
-  background-color: #ffe6f0;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  background-color: var(--color-bg-light);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-primary-light);
+  outline: none;
+}
+
+button,
+input[type="submit"] {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+button:focus-visible,
+input[type="submit"]:focus-visible {
+  background-color: var(--color-primary-light);
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+}
+
+label {
+  font-weight: bold;
+  color: var(--color-secondary);
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
   padding-left: 0;
 }
 
 ul li {
-  margin-bottom: 10px;
-  font-size: 1rem;
+  margin-bottom: var(--space-xs);
 }
 
 img {
@@ -105,84 +150,95 @@ img {
   height: auto;
   display: block;
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: var(--space-sm);
+}
+
+header .logo {
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto var(--space-sm);
+  display: block;
 }
 
 #services img {
-  max-width: 150px;
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  margin: 8px auto 15px;
-}
-
-button, input[type="submit"] {
-  background-color: #e75480;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button:hover, input[type="submit"]:hover {
-  background-color: #ff66a3;
-}
-
-input[type="text"], input[type="date"], input[type="time"], textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #e75480;
+  margin: 10px auto 15px;
   border-radius: 8px;
 }
-
-label {
-  font-weight: bold;
-  color: #800040;
-}
-
 
 .review {
-  border: 1px solid #e75480;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  background-color: #fff0f6;
+  border: 1px solid var(--color-primary);
+  padding: var(--space-sm);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-sm);
+  background-color: var(--color-bg);
 }
 
-@media (max-width: 1024px) {
-  #services ul li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+nav {
+  margin-top: var(--space-sm);
 }
 
-@media (max-width: 768px) {
+nav a {
+  margin: 0 var(--space-xs);
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--color-primary-light);
+}
+
+@media (min-width: 600px) {
   body {
-    padding: 10px;
+    padding: 0 var(--space-lg);
   }
 
   header h1 {
-    font-size: 1.8rem;
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (min-width: 900px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
   }
 
-  h1 {
-    font-size: 2rem;
+  header .logo {
+    margin: 0;
   }
 
-  h2 {
-    font-size: 1.5rem;
+  nav {
+    margin-top: 0;
   }
 
+  main {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.25rem; }
+}
+
+@media (max-width: 600px) {
   nav a {
     display: block;
-    margin: 5px 0;
+    margin: var(--space-xs) 0;
   }
 
-  button, input[type="submit"] {
+  button,
+  input[type="submit"] {
     width: 100%;
+  }
+
+  #services img {
+    max-width: 90%;
   }
 }
